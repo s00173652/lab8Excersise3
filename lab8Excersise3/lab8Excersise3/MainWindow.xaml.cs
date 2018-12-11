@@ -54,6 +54,7 @@ namespace lab8Excersise3
             eventList.Add(rules3);
             eventList.Add(rules4);
             lbxEventList.ItemsSource = eventList;
+            
 
             //Adding Values to Combo Box
             int[] betPlacement = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
@@ -101,6 +102,7 @@ namespace lab8Excersise3
             else
             {
                 eventList.Add("Not Enough Chips Available");
+
             }
 
             //Update all Data on screen
