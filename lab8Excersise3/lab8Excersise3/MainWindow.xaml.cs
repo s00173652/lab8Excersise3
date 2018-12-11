@@ -133,7 +133,45 @@ namespace lab8Excersise3
 
         private void btnPlaceBet_Click(object sender, RoutedEventArgs e)
         {
+            //Initialize some Variables
+            string result;
 
+            //Take in Bet and clear all fields
+            int finalizedBet = currentBet;
+            int betOn = ++cbxBetOn.SelectedIndex;
+
+            //Write out bet to event list
+            string finalizedBetEvent = "You bet " + finalizedBet + " Chips on " + betOn;
+            eventList.Add(finalizedBetEvent);
+
+            //Spin the Wheel(Generate Random Number between 1 and 20 for Roullete Wheel)
+            int rouletteResult = chipGenerator.Next(1, 21);
+            tblkWheel.Text = rouletteResult.ToString();
+
+            //Check if User Won
+            if(rouletteResult == betOn)
+            {
+                finalizedBet *= 2;
+                chips += finalizedBet;
+                result = "You Won " + finalizedBet + " Chips";
+            }
+            else
+            {
+                result = "You Lost " + finalizedBet + " Chips";
+                
+            }
+
+            //Display Result
+            tblkResult.Text = result;
+
+            //Clear All Variables
+            finalizedBet = 0;
+            betOn = 0;
+            currentBet = 0;
+
+            //Update Display
+            tblkCurrentBet.Text = currentBet.ToString();
+            cbxBetOn.SelectedIndex = 0;
         }
     }
 }
